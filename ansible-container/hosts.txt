@@ -1,0 +1,2 @@
+[AWS]
+ubuntu1 ansible_host=10.10.10.1
