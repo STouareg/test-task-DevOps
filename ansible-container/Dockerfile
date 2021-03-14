@@ -22,6 +22,8 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 RUN echo "alias ap='ansible-playbook'" >> ~/.bash_aliases && . ~/.bashrc
 
 COPY .aws/ /root/.aws/
+COPY .SSH-keys/ /root/.ssh/
+COPY / /root/.aws/
 
 #Attach volumes:
 VOLUME ansible-workdir/
