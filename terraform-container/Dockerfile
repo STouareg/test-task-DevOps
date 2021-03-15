@@ -37,12 +37,8 @@ RUN echo "alias ti='terraform init'" >> ~/.bash_aliases && . ~/.bashrc && \
   echo "alias tp='terraform plan'" >> ~/.bash_aliases && . ~/.bashrc && \
   echo "alias ta='terraform apply'" >> ~/.bash_aliases && . ~/.bashrc
 
-VOLUME terraform-workdir/ 
-VOLUME SSH-keys/ /SSH/
 
 #Copy AWS CLI credentials:
 COPY .aws/ /root/.aws/
 
-#Attach volumes:
-RUN mkdir -p /SSH
-WORKDIR /SSH
+WORKDIR /terraform-workdir
