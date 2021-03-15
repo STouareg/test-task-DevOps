@@ -1,0 +1,9 @@
+---
+- name: Install Apache
+  hosts: localhost
+  become: yes
+
+
+  roles: 
+    - { role: install-apache, when: ansible_system == 'Linux' }
+     

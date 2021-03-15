@@ -11,7 +11,8 @@ RUN apt update && \
   zip \
   tree \
   nano \
-  vim
+  vim \
+  less
 
 #Install AWS CLI packages:
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
@@ -22,8 +23,7 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 RUN echo "alias ap='ansible-playbook'" >> ~/.bash_aliases && . ~/.bashrc
 
 #Copy AWS CLI credentials:
-RUN make /.aws
-COPY .aws/ .aws
+COPY .aws/ .aws/
 
 #Attach volumes:
 VOLUME ansible-workdir/

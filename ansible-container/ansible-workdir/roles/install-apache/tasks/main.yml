@@ -1,0 +1,21 @@
+---
+# tasks file for install-apache
+
+- block:      # =======Block for RedHat=======
+    - name: Install Apache WebServer for RedHat
+      yum: name=httpd state=latest
+    - name: Start WebServer and make it enable on boot for RedHat
+      service: name=httpd state=started enabled=yes
+
+  when: ansible_os_family == "RedHat"
+
+- block:      # =======Block for Debian=======
+
+    - name: Install Apache WebServer for Debian
+      apt: name=apache2 state=latest
+    - name: Start WebServer and make it enable on boot for Debian
+      service: name=apache2 state=started enabled=yes
+
+  when: ansible_os_family == "Debian"
+
+
